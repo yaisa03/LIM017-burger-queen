@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 3px solid #91EFA6;
+}
+
+.headerLogo {
+    width: 150px;
+}
+
+.headerLetters {
+    width: 350px;
+    height: 100px;
+}
+
+.headerButton {
+    width: 150px;
+}
