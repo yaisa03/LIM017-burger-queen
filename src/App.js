@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useRef } from 'react';
+import BurgerLogo from './Images/BurgerLogo.jpg'
 import './App.css';
 
 function App() {
+  const userInputRef = useRef();
+  const passwordInputRef = useRef();
+
+  const getInputValue = () => {
+    const inputUserValue = userInputRef.current.value;
+    const inputPasswordValue = passwordInputRef.current.value;
+    console.log(inputUserValue);
+    console.log(inputPasswordValue);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <img src={BurgerLogo} className="App-logo" alt="logo" />
+        <p>Iniciar Sesion:</p>
+        <input ref={userInputRef} type="text" id="user" className="loginInputs" placeholder="Usuario"/>
+        <input  ref={passwordInputRef} type="password" id="password" className="loginInputs" placeholder="Contraseña"/>
+        <button id="loginButton" onClick={getInputValue}>Ingresar</button> 
     </div>
   );
 }
