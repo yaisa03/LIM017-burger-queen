@@ -1,7 +1,7 @@
 import './App.css';
 import LogIn from "./Components/Login";
 import Waiters from "./Components/Waiters";
-import OrderView from "./Components/OrderView";
+import Orders from "./Components/Orders";
 import {
   Routes,
   Route,
@@ -12,7 +12,7 @@ function App() {
   <Routes>
   <Route path="/" element={<LogIn />} />
   <Route path="/waiters" element={<Waiters />}/>
-  <Route path="/order" element={<OrderView />} />
+  <Route path="/orders" element={<Orders />} />
 </Routes>);  
 }
 

@@ -5,10 +5,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: 3px solid #91EFA6;
+    border-bottom: 3px solid #D7C332;
 }
 .headerLogo {
     width: 150px;
+}
+.iconExit{
+    color: white;
+    font-size: 30px;
 }
 .headerLetters {
     width: 350px;
@@ -37,7 +41,7 @@ div#root {
 .buttonWaiterOptions{
     height: 60px;
     width: 50%;
-    background-color:#91EFA6;
+    background-color:#D7C332;
     color: black;
 }
 #waiterMenuOptions{
@@ -47,6 +51,7 @@ div#root {
 .buttonWaiterMenu{
     height: 80px;
     width: 30%;
+    background-color:#FF5A33
 }
 .menuItems{
     width: 50%;
@@ -70,7 +75,7 @@ h4{
     font-size: 24px;
 }
 .breakfast{
-    background-color:#4C837A;
+    background-color:#146152;
     width: 300px;
     height: 90px;
     margin-top: 40px;

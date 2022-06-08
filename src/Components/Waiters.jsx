@@ -10,17 +10,27 @@ export default function Waiters () {
     let navigate = useNavigate();
     let location = useLocation();
 
+    const takeOrder = () => {
+        // const inputClientValue = clientInputRef.current.value;
+        navigate("/waiters" + location.search);
+        // console.log(inputClientValue);
+    }
+    const orderStatus = () => {
+        // const inputClientValue = clientInputRef.current.value;
+        navigate("/orders" + location.search);
+        // console.log(inputClientValue);
+    }
     const getInputClientValue = () => {
         const inputClientValue = clientInputRef.current.value;
-        navigate("/order" + location.search);
         console.log(inputClientValue);
     }
+
     return (
     <div id="waiterViewContainer">
         <Header/>
         <div>
-            <button onClick= {getInputClientValue} className= "buttonWaiterOptions"> Tomar orden </button>
-            <button className= "buttonWaiterOptions"> Estado orden </button>
+            <button onClick= {takeOrder} className= "buttonWaiterOptions"> Tomar orden </button>
+            <button onClick= {orderStatus} className= "buttonWaiterOptions"> Estado orden </button>
         </div>
         <div id="waiterMenuOptions">
             <button onClick= {getInputClientValue} className= "buttonWaiterMenu"> Desayuno </button>

@@ -1,5 +1,5 @@
 import Header from "./Header";
-export default function OrderView() {
+export default function Orders() {
     return (
         <div>
         <><Header /></>
