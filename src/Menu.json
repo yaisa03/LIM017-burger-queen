@@ -1,0 +1,88 @@
+{
+    "name": "Menu",
+    "items": {
+            "desayuno": [
+                {
+                    "opcion":"Café americano",
+                    "precio":"5",
+                    "id": "d0"
+                },
+                {
+                    "opcion":"Café con leche",
+                    "precio":"7" ,
+                    "id": "d1"                   
+                },                
+                {
+                    "opcion":"Sandwich de jamón y queso",
+                    "precio":"10",
+                    "id": "d2"                    
+                },                               
+                {
+                    "opcion":"Jugo de frutas natural",
+                    "precio":"7",
+                    "id": "d3"                    
+                }
+            ],
+            "Hamburguesas": {
+                "tipo" : ["res", "pollo", "vegetariana"],
+                "opciones": [
+                    {
+                        "opcion":"Hamburguesa simple",
+                        "precio":"10",
+                        "id": "h0"
+                    },
+                    {
+                        "opcion":"Hamburguesa doble",
+                        "precio":"15",
+                        "id": "h1"                    
+                    }
+                ],
+                "extras": [
+                    {
+                        "opcion" : "huevo",
+                        "precio" : "1"
+                        ,
+                        "id": "e0"                    },
+                    {
+                        "opcion" : "queso",
+                        "precio" : "1",
+                        "id": "e1"
+                    }
+                ]
+            },
+            "Acompañamientos": [
+                {
+                    "opcion": "Papas fritas",
+                    "precio": "5",
+                    "id": "a0"
+                },
+                {
+                    "opcion": "Aros de cebolla",
+                    "precio": "5",
+                    "id": "a1"
+                }
+            ],
+            "Bebidas": [
+                {
+                    "opcion": "Agua 500ml",
+                    "precio": "5",
+                    "id": "b0"
+                },
+                {
+                    "opcion": "Agua 750ml",
+                    "precio": "7",
+                    "id": "b1"
+                },
+                {
+                    "opcion": "Bebida/gaseosa 500ml",
+                    "precio": "7",
+                    "id": "b2"
+                },
+                {
+                    "opcion": "Bebida/gaseosa 750ml",
+                    "precio": "10",
+                    "id": "b3"
+                }
+            ]
+        }
+}
