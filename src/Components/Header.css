@@ -1,23 +1,118 @@
 .header {
     width: 100%;
     height: 150px;
-    position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 3px solid #91EFA6;
 }
-
 .headerLogo {
     width: 150px;
 }
-
 .headerLetters {
     width: 350px;
     height: 100px;
 }
-
 .headerButton {
     width: 150px;
+}
+.headerUser{
+    margin:0px;
+}
+div#root {
+    width: 100%;
+    height: 100%;
+}
+#waiterViewContainer{  
+    height: 100%;  
+    display: flex;
+    flex-direction: column;        
+}
+#elementsWaiterView{
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+}
+.buttonWaiterOptions{
+    height: 60px;
+    width: 50%;
+    background-color:#91EFA6;
+    color: black;
+}
+#waiterMenuOptions{
+    display: flex; 
+    justify-content: space-evenly;
+}
+.buttonWaiterMenu{
+    height: 80px;
+    width: 30%;
+}
+.menuItems{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#orderItems{
+    background-color:rgba(211,224,158,0.2);
+    border-radius:10px;
+    margin: 20px;
+    height: 700px;
+}
+h4{
+    font-size: 25px;
+    color: white;
+}
+.inputClient{
+    width: 250px;
+    height: 45px;
+    font-size: 24px;
+}
+.breakfast{
+    background-color:#4C837A;
+    width: 300px;
+    height: 90px;
+    margin-top: 40px;
+}
+@media (max-device-width: 1280px) and (orientation: landscape) {
+    .header {
+        height: 100px;
+        align-items: center;
+    }
+    .headerLogo {
+        width: 120px;
+    }
+    .headerLetters {
+        width: 320px;
+        height: 75px;
+    }
+    #orderItems{
+        height: 500px;
+    }
+    .buttonWaiterMenu{
+        height: 60px;
+    }
+}
+@media only screen and (min-width : 1224px){
+    .header {
+        height: 80px;
+        align-items: center;
+    }
+    .headerLogo {
+        width: 100px;
+    }
+    .headerLetters {
+        width: 260px;
+        height: 55px;
+    }
+    .buttonWaiterOptions{
+        height: 40px;
+        margin: 0px;
+    }
+    .buttonWaiterMenu{
+        margin-top: 20px;
+        height: 50px;
+        width: 20%;
+    }
 }
