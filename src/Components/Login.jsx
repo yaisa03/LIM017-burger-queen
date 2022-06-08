@@ -4,6 +4,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+import { signIn } from '../Firebase/Firebase.js'
 
 import BurgerLogo from '../Images/BurgerLogo.jpg'
 
@@ -17,10 +18,16 @@ export default function LogIn() {
   const getInputValue = () => {
     const inputUserValue = userInputRef.current.value;
     const inputPasswordValue = passwordInputRef.current.value;
-
-    navigate("/waiters" + location.search);
-    console.log(inputUserValue);
-    console.log(inputPasswordValue);
+    signIn(inputUserValue, inputPasswordValue).then((user) => {      
+      if(typeof user === 'string'){
+        console.log(user);
+      }else{
+        navigate("/waiters" + location.search);
+        console.log(user.user);
+      }
+    })
+    /* console.log(inputUserValue);
+    console.log(inputPasswordValue); */
   }
 
   return (

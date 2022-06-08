@@ -1,6 +1,7 @@
 import Logo from '../Images/Logo.jpg'
 import Letters from '../Images/letters.jpg'
 import './Header.css';
+import {FaSignOutAlt} from "react-icons/fa";
 import {
     useNavigate,
     useLocation,
@@ -17,7 +18,7 @@ export default function Header() {
             <img src={Logo} className="headerLogo" alt="logo" />
             <img src={Letters} className="headerLetters" alt="logo" />
             <p className="headerUser">User</p>
-            <button onClick= {exit}className="headerButton">Salir</button>
+            <FaSignOutAlt onClick= {exit} className="iconExit"/>
         </header>
     )
 }
