@@ -1,5 +1,5 @@
 import Header from "./Header";
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   useNavigate,
   useLocation,
@@ -9,6 +9,7 @@ import menu from '../Menu.json';
 
 
 export default function Waiters () {
+    const [data, setData] = useState(menu.breakfast);
     const clientInputRef = useRef();
     let navigate = useNavigate();
     let location = useLocation();
@@ -27,12 +28,14 @@ export default function Waiters () {
         const inputClientValue = clientInputRef.current.value;
         console.log(inputClientValue);
     } */
-    let data = menu.breakfast;
     const showItemsBreakfast = () => {
-        return data = menu.breakfast;
+        return setData(menu.breakfast);
     } 
-    const showItemsLunch = () => {
-        return data = menu.lunch;
+    const showItemsDishes = () => {
+        return setData(menu.dishes);
+    } 
+    const showItemsDrinks = () => {
+        return setData(menu.drinks);
     } 
 
     return (
@@ -44,7 +47,8 @@ export default function Waiters () {
         </div>
         <div id="waiterMenuOptions">
             <button onClick= {showItemsBreakfast} className= "buttonWaiterMenu"> Desayuno </button>
-            <button onClick= {showItemsLunch} className= "buttonWaiterMenu"> Almuerzo y Cena </button>
+            <button onClick= {showItemsDishes} className= "buttonWaiterMenu"> Platos </button>
+            <button onClick= {showItemsDrinks} className= "buttonWaiterMenu"> Bebidas </button>
         </div>
         <div id="elementsWaiterView">
             <MenuList data={data}/>
