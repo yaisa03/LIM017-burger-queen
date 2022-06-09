@@ -10,6 +10,7 @@ import menu from '../Menu.json';
 
 export default function Waiters () {
     const [data, setData] = useState(menu.breakfast);
+    const [order, setOrder] = useState([]);
     const clientInputRef = useRef();
     let navigate = useNavigate();
     let location = useLocation();
@@ -51,10 +52,10 @@ export default function Waiters () {
             <button onClick= {showItemsDrinks} className= "buttonWaiterMenu"> Bebidas </button>
         </div>
         <div id="elementsWaiterView">
-            <MenuList data={data}/>
+            <MenuList data={data} setOrder={setOrder} order={order}/>
             <section className="menuItems" id="orderItems">
-            <h4>Nombre del cliente:</h4>
-            <input ref={clientInputRef}type= "text" className="inputClient"placeholder= "Cliente"></input>
+                <h4>Nombre del cliente:</h4>
+                <input ref={clientInputRef}type= "text" className="inputClient"placeholder= "Cliente"></input>
             </section>
         </div>
     </div>
