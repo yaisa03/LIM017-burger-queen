@@ -12,7 +12,7 @@
 }
 .iconExit{
     color: white;
-    font-size: 30px;
+    font-size: 40px;
 }
 .headerLetters {
     width: 350px;
@@ -23,6 +23,8 @@
 }
 .headerUser{
     margin:0px;
+    font-size:25px;
+    font-weight:bold;
 }
 div#root {
     width: 100%;
@@ -58,6 +60,7 @@ div#root {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color:aliceblue;
 }
 #orderItems{
     background-color:rgba(211,224,158,0.2);
