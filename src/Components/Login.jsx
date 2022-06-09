@@ -23,7 +23,7 @@ export default function LogIn() {
         console.log(user);
       }else{
         navigate("/waiters" + location.search);
-        console.log(user.user);
+        
       }
     })
     /* console.log(inputUserValue);
