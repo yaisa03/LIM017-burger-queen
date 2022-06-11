@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
+import Cart from "./Cart";
 
 
 export default function Waiters () {
@@ -56,6 +57,8 @@ export default function Waiters () {
             <section className="menuItems" id="orderItems">
                 <h4>Nombre del cliente:</h4>
                 <input ref={clientInputRef}type= "text" className="inputClient"placeholder= "Cliente"></input>
+                {console.log({order})}
+                <Cart order={order}/>
             </section>
         </div>
     </div>
