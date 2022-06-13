@@ -39,6 +39,19 @@ export default function Waiters () {
     const showItemsDrinks = () => {
         return setData(menu.drinks);
     } 
+   const addItemQty = (id, option) => {
+        if (order.some((item) => item.id === id)) {
+          const idproduct = order.map((item) =>
+            item.id === id ? { ...item, price:(item.price/item.count)*(item.count + 1), count: item.count + 1 } : item
+          );
+          setOrder(idproduct);
+        } else {
+          setOrder([
+            ...order,
+            { id: id, item: option.item, price: option.price, count: 1 },
+          ]);
+        }
+      };
 
     return (
     <div id="waiterViewContainer">
@@ -53,12 +66,12 @@ export default function Waiters () {
             <button onClick= {showItemsDrinks} className= "buttonWaiterMenu"> Bebidas </button>
         </div>
         <div id="elementsWaiterView">
-            <MenuList data={data} setOrder={setOrder} order={order}/>
+            <MenuList data={data} setOrder={setOrder} order={order} addItemQty={addItemQty}/>
             <section className="menuItems" id="orderItems">
                 <h4>Nombre del cliente:</h4>
                 <input ref={clientInputRef}type= "text" className="inputClient"placeholder= "Cliente"></input>
                 {console.log({order})}
-                <Cart order={order}/>
+                <Cart order={order} addItemQty={addItemQty}/>
             </section>
         </div>
     </div>
