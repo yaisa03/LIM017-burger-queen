@@ -1,7 +1,7 @@
 import Logo from '../Images/Logo.jpg'
 import Letters from '../Images/letters.jpg'
-import './Header.css';
-import {FaSignOutAlt} from "react-icons/fa";
+import './Waiters.css';
+import { FaSignOutAlt } from "react-icons/fa";
 import {
     useNavigate,
     useLocation,
