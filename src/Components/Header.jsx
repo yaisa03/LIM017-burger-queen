@@ -13,7 +13,6 @@ export default function Header() {
     let location = useLocation();
     const position = (auth.currentUser.email).indexOf('@');
     let username = (auth.currentUser.email).substring(0,position);
-    console.log(username);
     const exit = () => {
         navigate("/" + location.search);
         SignOut();
