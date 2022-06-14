@@ -1,5 +1,5 @@
 import { app } from './FirebaseInit';
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc} from "firebase/firestore";
 
 import {
     getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, 
@@ -27,4 +27,13 @@ export function passwordReset(email) {
 export function SignOut() {
     return signOut(auth).then(() => {})
       .catch((error) => error);
+  }
+
+// Funcion que crea pedidos es Firestore
+export function uploadOrder(clientOrder) {
+    const user = auth.currentUser;
+    return addDoc(collection(db, 'orders'), {
+      ...clientOrder,
+      waiterId: user.uid
+    });
   }
