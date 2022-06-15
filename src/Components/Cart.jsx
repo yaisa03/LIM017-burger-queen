@@ -1,6 +1,6 @@
 import { FaPlus, FaMinus, FaTrashAlt } from "react-icons/fa";
 
-export default function CartList({ order, addItemQty, subsItemQty, deleteItem}) {
+export default function CartList({ order, addItemQty, subsItemQty, deleteItem }) {
     return (
         <section className="cartList" id="cartList">
             {order.map(option => {

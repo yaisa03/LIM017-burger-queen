@@ -1,5 +1,5 @@
 
-export default function MenuItem({option, addItemQty}) {
+export default function MenuItem({option, addItemQty }) {
     const {id, item, price} = option;
 
     const addItemToOrder = () => {
