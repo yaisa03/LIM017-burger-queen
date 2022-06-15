@@ -76,10 +76,16 @@ div#root {
     background-color:rgba(211,224,158,0.2);
     border-radius:10px;
     margin-top: 10px;
+    width: 95%;
     height: 700px;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+#orderTotal {
+    position: -webkit-sticky;
+    position: sticky;
+    margin: 0px;
 }
 h4{
     font-size: 25px;
@@ -89,6 +95,7 @@ h4{
     width: 250px;
     height: 45px;
     font-size: 24px;
+    padding-left: 5px;
 }
 .menuItem{
     background-color:#146152;
@@ -98,6 +105,7 @@ h4{
 }
 .cartList {
     width: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,4 +199,12 @@ h4{
     .menuItem{
         font-size: 15px;
     }
+    .cartList::-webkit-scrollbar {
+        display: none;
+      }
+
+      #orderTotal {
+        font-size: 25px;
+    }
+    
 }

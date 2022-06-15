@@ -1,5 +1,5 @@
 import Header from "./Header";
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   useNavigate,
   useLocation,
@@ -13,24 +13,17 @@ import { uploadOrder } from '../Firebase/Firebase.js'
 export default function Waiters() {
   const [data, setData] = useState(menu.breakfast);
   const [order, setOrder] = useState([]);
+  const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
   let navigate = useNavigate();
   let location = useLocation();
 
   const takeOrder = () => {
-    // const inputClientValue = clientInputRef.current.value;
     navigate("/waiters" + location.search);
-    // console.log(inputClientValue);
   }
   const orderStatus = () => {
-    // const inputClientValue = clientInputRef.current.value;
     navigate("/orders" + location.search);
-    // console.log(inputClientValue);
   }
-  /* const getInputClientValue = () => {
-      const inputClientValue = clientInputRef.current.value;
-      console.log(inputClientValue);
-  } */
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
@@ -72,10 +65,12 @@ export default function Waiters() {
 
   const sendOrder = () => {
     const inputClientValue = clientInputRef.current.value;
-    if(inputClientValue) {
+    if (inputClientValue) {
       let clientOrder = {
         order: order,
-        client: inputClientValue
+        client: inputClientValue,
+        total: total,
+        state: "pending"
       }
       uploadOrder(clientOrder);
       alert('pedido enviado')
@@ -85,6 +80,11 @@ export default function Waiters() {
       alert('ingresa nombre del cliente')
     }
   }
+
+  useEffect(() => {
+      const totalOrder = order.reduce((total, price) => total + price.price, 0);
+      setTotal(totalOrder);
+  }, [order]);
 
   return (
     <div id="waiterViewContainer">
@@ -105,11 +105,12 @@ export default function Waiters() {
             <h4>Nombre del cliente:</h4>
             <input ref={clientInputRef} type="text" className="inputClient" placeholder="Cliente"></input>
             <Cart order={order} addItemQty={addItemQty} subsItemQty={subsItemQty} deleteItem={deleteItem} />
+            <p id="orderTotal">total = ${total}</p>
           </section>
           <button onClick={sendOrder}>Enviar</button>
           <div />
         </div>
       </div>
-      </div>
-      );
+    </div>
+  );
 }

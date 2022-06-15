@@ -18,16 +18,34 @@ export default function LogIn() {
   const getInputValue = () => {
     const inputUserValue = userInputRef.current.value;
     const inputPasswordValue = passwordInputRef.current.value;
+   
     signIn(inputUserValue, inputPasswordValue).then((user) => {      
       if(typeof user === 'string'){
-        console.log(user);
+        let message = '';
+          switch (user) {
+            case 'Firebase: Error (auth/internal-error).':
+              message ='ingresar contraseña';
+              break;
+            case 'Firebase: Error (auth/invalid-email).':
+              message ='email invalido';
+              break;
+            case 'Firebase: Error (auth/user-not-found).':
+              message ='usuario no encontrado';
+              break;
+            case 'Firebase: Error (auth/wrong-password).':
+              message ='contraseña incorrecta';
+              break;
+            case 'Firebase: Error (auth/missing-email).':
+              message ='ingresar email';
+              break;
+            default:
+              break;
+          }
+        alert(message);
       }else{
         navigate("/waiters" + location.search);
-        
       }
     })
-    /* console.log(inputUserValue);
-    console.log(inputPasswordValue); */
   }
 
   return (
