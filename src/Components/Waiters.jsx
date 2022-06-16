@@ -1,9 +1,9 @@
 import Header from "./Header";
 import React, { useEffect, useRef, useState } from 'react';
-import {
+/* import {
   useNavigate,
   useLocation,
-} from "react-router-dom";
+} from "react-router-dom"; */
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
 import Cart from "./Cart";
@@ -15,15 +15,15 @@ export default function Waiters() {
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
-  let navigate = useNavigate();
-  let location = useLocation();
+  /* let navigate = useNavigate();
+  let location = useLocation(); */
 
-  const takeOrder = () => {
+  /* const takeOrder = () => {
     navigate("/waiters" + location.search);
   }
   const orderStatus = () => {
     navigate("/orders" + location.search);
-  }
+  } */
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
@@ -89,10 +89,10 @@ export default function Waiters() {
   return (
     <div id="waiterViewContainer">
       <Header />
-      <div>
+      {/* <div>
         <button onClick={takeOrder} className="buttonWaiterOptions"> Tomar orden </button>
         <button onClick={orderStatus} className="buttonWaiterOptions"> Estado orden </button>
-      </div>
+      </div> */}
       <div id="waiterMenuOptions">
         <button onClick={showItemsBreakfast} className="buttonWaiterMenu"> Desayuno </button>
         <button onClick={showItemsDishes} className="buttonWaiterMenu"> Platos </button>

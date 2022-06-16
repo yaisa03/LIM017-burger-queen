@@ -17,12 +17,23 @@ export default function Header() {
         navigate("/" + location.search);
         SignOut();
     }
-    return (
+    const takeOrder = () => {
+        navigate("/waiters" + location.search);
+      }
+      const orderStatus = () => {
+        navigate("/orders" + location.search);
+      }
+    return (<>
         <header className="header">
             <img src={Logo} className="headerLogo" alt="logo" />
             <img src={Letters} className="headerLetters" alt="logo" />
             <p className="headerUser">{username}</p>
             <FaSignOutAlt onClick= {exit} className="iconExit"/>
         </header>
+        <div>
+        <button onClick={takeOrder} className="buttonWaiterOptions"> Tomar orden </button>
+        <button onClick={orderStatus} className="buttonWaiterOptions"> Estado orden </button>
+      </div>
+      </>
     )
 }

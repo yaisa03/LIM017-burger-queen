@@ -1,12 +1,20 @@
 import Header from "./Header";
+import './Orders.css';
 export default function Orders() {
     return (
-        <div>
-        <><Header /></>
-        <div>
-            <button>Desayuno</button>
-            <button>Almuerzo y Cena</button>
-        </div>
-        </div>
+        <>
+        <Header />
+        <section className="ordersContainer">
+            <div>
+                <p>Pendientes</p>
+            </div>
+            <div>
+                <p>En Proceso</p>
+            </div>
+            <div>
+                <p>Listas</p>
+            </div>
+        </section>
+        </>
     );
 }
