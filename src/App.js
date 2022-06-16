@@ -1,7 +1,8 @@
 import './App.css';
-import LogIn from "./Components/Login";
+import Log from "./Components/Log";
 import Waiters from "./Components/Waiters";
 import Orders from "./Components/Orders";
+import { AuthProvider } from './Firebase/context';
 import {
   Routes,
   Route,
@@ -9,11 +10,14 @@ import {
 
 function App() {
   return (
-  <Routes>
-  <Route path="/" element={<LogIn />} />
-  <Route path="/waiters" element={<Waiters />}/>
-  <Route path="/orders" element={<Orders />} />
-</Routes>);  
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Log />} />
+        <Route path="/waiters" element={<Waiters />} />
+        <Route path="/orders" element={<Orders />} />
+      </Routes>
+    </AuthProvider>
+    );
 }
 
 export default App;
