@@ -8,7 +8,7 @@ import BurgerLogo from '../Images/BurgerLogo.jpg'
 
 import { AuthContext } from '../Firebase/context'
 
-export default function Log() {
+export default function LogIn() {
   const userInputRef = useRef();
   const passwordInputRef = useRef();
 
