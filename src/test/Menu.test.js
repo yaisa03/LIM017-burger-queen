@@ -35,7 +35,7 @@ test('renders MenuList', () => {
             price: 10
         },
         {
-            id: 1,
+            id: 2,
             item: 'Sandwich',
             price: 8
         }
