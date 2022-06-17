@@ -1,29 +1,18 @@
 import Header from "./Header";
 import React, { useEffect, useRef, useState } from 'react';
-/* import {
-  useNavigate,
-  useLocation,
-} from "react-router-dom"; */
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
 import Cart from "./Cart";
 import { uploadOrder } from '../Firebase/Firebase.js'
 
-
+// Funcion que crea la vista waiters para tomar pedidos
 export default function Waiters() {
   const [data, setData] = useState(menu.breakfast);
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
-  /* let navigate = useNavigate();
-  let location = useLocation(); */
+  const clientTableRef = useRef();
 
-  /* const takeOrder = () => {
-    navigate("/waiters" + location.search);
-  }
-  const orderStatus = () => {
-    navigate("/orders" + location.search);
-  } */
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
@@ -70,7 +59,8 @@ export default function Waiters() {
         order: order,
         client: inputClientValue,
         total: total,
-        state: "pending"
+        state: "pending",
+        table: clientTableRef.current.value
       }
       uploadOrder(clientOrder);
       alert('pedido enviado')
@@ -82,17 +72,13 @@ export default function Waiters() {
   }
 
   useEffect(() => {
-      const totalOrder = order.reduce((total, price) => total + price.price, 0);
-      setTotal(totalOrder);
+    const totalOrder = order.reduce((total, price) => total + price.price, 0);
+    setTotal(totalOrder);
   }, [order]);
 
   return (
     <div id="waiterViewContainer">
       <Header />
-      {/* <div>
-        <button onClick={takeOrder} className="buttonWaiterOptions"> Tomar orden </button>
-        <button onClick={orderStatus} className="buttonWaiterOptions"> Estado orden </button>
-      </div> */}
       <div id="waiterMenuOptions">
         <button onClick={showItemsBreakfast} className="buttonWaiterMenu"> Desayuno </button>
         <button onClick={showItemsDishes} className="buttonWaiterMenu"> Platos </button>
@@ -102,10 +88,30 @@ export default function Waiters() {
         <MenuList data={data} setOrder={setOrder} order={order} addItemQty={addItemQty} />
         <div className="orderContainer">
           <section className="menuItems" id="orderItems">
-            <h4>Nombre del cliente:</h4>
-            <input ref={clientInputRef} type="text" className="inputClient" placeholder="Cliente"></input>
+            <div className="clientNameInput">
+              <label>
+              Nombre del cliente:
+              <input ref={clientInputRef} type="text" className="inputClient" placeholder="Cliente"></input>
+              </label>
+              <label>Numero de mesa:
+              <select className="tableSelect" ref={clientTableRef}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              </label>
+            </div>
             <Cart order={order} addItemQty={addItemQty} subsItemQty={subsItemQty} deleteItem={deleteItem} />
-            <p id="orderTotal">total = ${total}</p>
+            <p id="orderTotal">Total = ${total}</p>
           </section>
           <button onClick={sendOrder}>Enviar</button>
           <div />
