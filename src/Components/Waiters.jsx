@@ -59,8 +59,9 @@ export default function Waiters() {
         order: order,
         client: inputClientValue,
         total: total,
-        state: "pending",
-        table: clientTableRef.current.value
+        state: "Pendiente",
+        table: clientTableRef.current.value,
+        date: new Date()
       }
       uploadOrder(clientOrder);
       alert('pedido enviado')
@@ -93,7 +94,7 @@ export default function Waiters() {
               Nombre del cliente:
               <input ref={clientInputRef} type="text" className="inputClient" placeholder="Cliente"></input>
               </label>
-              <label>Numero de mesa:
+              <label>Mesa:
               <select className="tableSelect" ref={clientTableRef}>
                 <option value="1">1</option>
                 <option value="2">2</option>

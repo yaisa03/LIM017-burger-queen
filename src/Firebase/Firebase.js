@@ -1,11 +1,10 @@
 import { app } from './FirebaseInit';
-import { getFirestore, collection, addDoc} from "firebase/firestore";
+import { getFirestore, collection, addDoc, query, where, orderBy,
+  onSnapshot } from "firebase/firestore";
 
 import {
     getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, 
-    signOut,/*  updateProfile,
-    getFirestore, collection, addDoc, query, where, orderBy,
-    deleteDoc, doc, setDoc, onSnapshot, getDoc, getStorage,
+    signOut,  /* deleteDoc, doc, setDoc, getDoc, getStorage,  updateProfile, 
     ref, uploadBytes, getDocs, */
 } from 'firebase/auth';
 const db = getFirestore(app);
@@ -36,4 +35,13 @@ export function uploadOrder(clientOrder) {
       ...clientOrder,
       waiterId: user.uid
     });
+  }
+
+  export async function ordersByStatus(status) {
+    const postsRef = collection(db, 'orders');
+    const q = query(postsRef, where('status', '==', status), orderBy('date', 'desc'));
+    //return onSnapshot(q, (snapshot) =>  console.log(snapshot));
+    const snapShot = onSnapshot(q, (snapshot) => console.log(snapshot.docs));
+    return snapShot;
+
   }

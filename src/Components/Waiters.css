@@ -177,6 +177,9 @@ label{
     .buttonWaiterMenu{
         height: 60px;
     }
+    .tableSelect {
+        width: 180%;
+    }
 }
 @media only screen and (min-width : 1224px){
     .header {
