@@ -11,6 +11,7 @@ import { AuthContext } from '../Firebase/context'
 export default function LogIn() {
   const userInputRef = useRef();
   const passwordInputRef = useRef();
+  const workerSelectRef = useRef();
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -20,6 +21,7 @@ export default function LogIn() {
   const getInputValue = () => {
     const inputUserValue = userInputRef.current.value;
     const inputPasswordValue = passwordInputRef.current.value;
+    const workerSelectRefValue = workerSelectRef.current.value;
    
     contextValue.logIn(inputUserValue, inputPasswordValue).then((user) => {      
       if(typeof user === 'string'){
@@ -45,7 +47,12 @@ export default function LogIn() {
           }
         alert(message);
       }else{
-        navigate("/waiters" + location.search);
+        if (workerSelectRefValue === "Mesas") {
+          navigate("/waiters" + location.search);
+        } else {
+          navigate("/kitchen" + location.search);
+        }
+        
       }
     })
   }
@@ -56,6 +63,10 @@ export default function LogIn() {
       <p>Iniciar Sesion:</p>
       <input ref={userInputRef} type="text" id="user" className="loginInputs" placeholder="Usuario" />
       <input ref={passwordInputRef} type="password" id="password" className="loginInputs" placeholder="Contraseña" />
+      <select className="workerType" ref={workerSelectRef}>
+      <option value="Mesas">Mesas</option>
+      <option value="Cocinas">Cocina</option>
+      </select>
       <button id="loginButton" onClick={getInputValue}>Ingresar</button>
     </div>
   );

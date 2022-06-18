@@ -1,4 +1,5 @@
 import Header from "./Header";
+import WaitersButtons from "./WaitersButtons";
 import React, { useEffect, useRef, useState } from 'react';
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
@@ -80,6 +81,7 @@ export default function Waiters() {
   return (
     <div id="waiterViewContainer">
       <Header />
+      <WaitersButtons/>
       <div id="waiterMenuOptions">
         <button onClick={showItemsBreakfast} className="buttonWaiterMenu"> Desayuno </button>
         <button onClick={showItemsDishes} className="buttonWaiterMenu"> Platos </button>

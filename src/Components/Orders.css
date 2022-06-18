@@ -28,7 +28,6 @@
 
 .orderStatusItem {
     width: 90%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,8 +49,28 @@
     background-color: #D7C332;
 }
 
+.ordersDoing .orderStatusItem p {
+    color: grey !important;
+}
+
 .ordersDone .orderStatusItem {
     background-color: #146152;
+}
+
+details {
+    font-size: 22px;
+    font-weight: bolder;
+    color: white;
+}
+
+details:hover {
+    color: grey;
+}
+
+.btnState {
+    height: 45px;
+    width: 170px;
+    font-size: 25px;
 }
 
 @media (max-device-width: 1280px) and (orientation: landscape) {
@@ -79,7 +98,6 @@
 
     .orderStatusItem {
         width: 100%;
-        height: 100%;
     }
 }
 
@@ -112,7 +130,6 @@
 
     .orderStatusItem {
         width: 100%;
-        height: 100%;
     }
 
     .orderStatusItem::-webkit-scrollbar {
