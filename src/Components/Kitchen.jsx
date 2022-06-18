@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Header from "./Header";
-import WaitersButtons from "./WaitersButtons";
 import './Orders.css';
 import OrdersList from "./OrdersList";
 import { getFirestore, query, orderBy, onSnapshot, collection } from "firebase/firestore";
 import { app } from '../Firebase/FirebaseInit';
 export const db = getFirestore(app);
 
-export default function Orders() {
+export default function Kitchen() {
 
     const [orders, setOrders] = useState([]);
 
@@ -23,10 +22,17 @@ export default function Orders() {
     return (
         <>
             <Header />
-            <WaitersButtons />
             <section className="ordersContainer">
+                <div className="ordersPending">
+                    <p>Pendientes</p>
+                    <OrdersList orders={orders} status="Pendiente" />
+                </div>
+                <div className="ordersDoing">
+                    <p>En Proceso</p>
+                    <OrdersList orders={orders} status="Haciendo"/>
+                </div>
                 <div className="ordersDone">
-                    <p>Ordenes Listas</p>
+                    <p>Listas</p>
                     <OrdersList orders={orders} status="Listo" />
                 </div>
             </section>
