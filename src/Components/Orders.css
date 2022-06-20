@@ -2,7 +2,7 @@
     width: 100%;
     height: 80%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -10,7 +10,7 @@
 .ordersContainer>div {
     width: 90%;
     height: 100%;
-    margin: 1%;
+    margin: 4% 1% 1%;
     padding-bottom: 1%;
     background-color: rgba(211, 224, 158, 0.2);
     text-align: center;
@@ -20,20 +20,24 @@
 }
 
 .orderStatusList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    width: 95%;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+    padding: 2%;
 }
 
 .orderStatusItem {
-    width: 90%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     overflow: scroll;
-    justify-self: center
+    justify-self: center;
+    border-radius: 10px;
 }
 
 .orderStatusItem p {
@@ -42,7 +46,7 @@
 }
 
 .ordersPending .orderStatusItem {
-    background-color: red;
+    background-color: rgba(223, 26, 26, 0.801);
 }
 
 .ordersDoing .orderStatusItem {
@@ -50,7 +54,7 @@
 }
 
 .ordersDoing .orderStatusItem p {
-    color: grey !important;
+    color: maroon;
 }
 
 .ordersDone .orderStatusItem {
@@ -60,11 +64,11 @@
 details {
     font-size: 22px;
     font-weight: bolder;
-    color: white;
+    color:  white;
 }
 
 details:hover {
-    color: grey;
+    color:darkblue;
 }
 
 .btnState {
@@ -76,24 +80,11 @@ details:hover {
 @media (max-device-width: 1280px) and (orientation: landscape) {
     .ordersContainer {
         height: 75%;
-        flex-direction: row;
     }
 
     .ordersContainer>div {
-        width: 30%;
-        height: 100%;
-        margin-top: 4%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .orderStatusList {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        overflow: scroll;
-        padding: 2%;
+        width: 30%;        
+        margin-top: 4%;        
     }
 
     .orderStatusItem {
@@ -105,6 +96,11 @@ details:hover {
     .ordersContainer {
         height: 75%;
         flex-direction: row;
+    }
+    .btnState{
+        height:40px;
+        width:150px;
+        font-size: 20px;
     }
 
     .ordersContainer>div {
@@ -120,22 +116,23 @@ details:hover {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        overflow: scroll;
+        overflow-y: scroll;
         padding: 2%;
-    }
-
+    } 
     .orderStatusList::-webkit-scrollbar {
         width: 10px;
+    }         
+    .orderStatusList::-webkit-scrollbar-thumb {
+        background-color: #4e4c4c;
+        border-radius: 20px;
+    }    
+    .orderStatusList::-webkit-scrollbar-track {
+        border-radius: 10px;  
     }
-
     .orderStatusItem {
         width: 100%;
+        overflow: hidden;
     }
-
-    .orderStatusItem::-webkit-scrollbar {
-        width: 10px;
-    }
-
     .orderStatusItem p {
         font-size: 20px;
         margin: 0;
