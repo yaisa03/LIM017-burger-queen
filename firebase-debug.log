@@ -1,0 +1,165 @@
+[debug] [2022-06-20T23:12:40.633Z] ----------------------------------------------------------------------
+[debug] [2022-06-20T23:12:40.636Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\yaisa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-06-20T23:12:40.637Z] CLI Version:   11.0.1
+[debug] [2022-06-20T23:12:40.638Z] Platform:      win32
+[debug] [2022-06-20T23:12:40.638Z] Node Version:  v16.13.2
+[debug] [2022-06-20T23:12:40.780Z] Time:          Mon Jun 20 2022 18:12:40 GMT-0500 (hora estándar de Perú)
+[debug] [2022-06-20T23:12:40.780Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-20T23:12:40.841Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-06-20T23:12:41.431Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-20T23:12:41.436Z] > authorizing via signed-in user (yaisamichellea@gmail.com)
+[debug] [2022-06-20T23:12:41.436Z] [iam] checking project burgerqueen-1ffdd for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-06-20T23:12:41.439Z] > refreshing access token with scopes: []
+[debug] [2022-06-20T23:12:41.440Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-06-20T23:12:42.033Z] <<< HTTP RESPONSE 200 {"date":"Mon, 20 Jun 2022 23:12:40 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-06-20T23:12:42.260Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/burgerqueen-1ffdd:testIamPermissions [none]
+[debug] [2022-06-20T23:12:42.260Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/burgerqueen-1ffdd:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-20T23:12:42.329Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-06-20T23:12:42.329Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-06-20T23:12:43.482Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/burgerqueen-1ffdd:testIamPermissions 200
+[debug] [2022-06-20T23:12:43.483Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/burgerqueen-1ffdd:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-06-20T23:12:43.487Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd [none]
+[debug] [2022-06-20T23:12:43.909Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd 200
+[debug] [2022-06-20T23:12:43.909Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd {"projectId":"burgerqueen-1ffdd","projectNumber":"489163254362","displayName":"BurgerQueen","name":"projects/burgerqueen-1ffdd","resources":{"hostingSite":"burgerqueen-1ffdd","realtimeDatabaseInstance":"burgerqueen-1ffdd-default-rtdb","storageBucket":"burgerqueen-1ffdd.appspot.com","locationId":"southamerica-east1"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'burgerqueen-1ffdd'...
+[info] 
+[info] i  deploying firestore, hosting 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2022-06-20T23:12:43.922Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd:test [none]
+[debug] [2022-06-20T23:12:43.923Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd:test [omitted]
+[debug] [2022-06-20T23:12:44.949Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd:test 200
+[debug] [2022-06-20T23:12:44.949Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd:test {"issues":[{"sourcePosition":{"fileName":"firestore.rules"},"description":"Ruleset uses old version (version [1]). Please update to the latest version (version [2]).","severity":"WARNING"}]}
+[warn] !  [W] undefined:undefined - Ruleset uses old version (version [1]). Please update to the latest version (version [2]). 
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2022-06-20T23:12:44.964Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd [none]
+[debug] [2022-06-20T23:12:45.971Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd 200
+[debug] [2022-06-20T23:12:45.972Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/burgerqueen-1ffdd {"projectId":"burgerqueen-1ffdd","projectNumber":"489163254362","displayName":"BurgerQueen","name":"projects/burgerqueen-1ffdd","resources":{"hostingSite":"burgerqueen-1ffdd","realtimeDatabaseInstance":"burgerqueen-1ffdd-default-rtdb","storageBucket":"burgerqueen-1ffdd.appspot.com","locationId":"southamerica-east1"},"state":"ACTIVE"}
+[debug] [2022-06-20T23:12:45.981Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions [none]
+[debug] [2022-06-20T23:12:45.982Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-06-20T23:12:47.960Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions 200
+[debug] [2022-06-20T23:12:47.961Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions {"name":"projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-06-20T23:12:47.968Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases pageSize=10&pageToken=
+[debug] [2022-06-20T23:12:47.970Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2022-06-20T23:12:48.911Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases 200
+[debug] [2022-06-20T23:12:48.911Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases {"releases":[{"name":"projects/burgerqueen-1ffdd/releases/cloud.firestore","rulesetName":"projects/burgerqueen-1ffdd/rulesets/e9178de9-a347-43aa-ae17-1dc4d5afbfb2","createTime":"2022-06-14T17:02:44.435125Z","updateTime":"2022-06-14T17:07:08.832086Z"}]}
+[debug] [2022-06-20T23:12:48.914Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets/e9178de9-a347-43aa-ae17-1dc4d5afbfb2 [none]
+[debug] [2022-06-20T23:12:49.640Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2022-06-20T23:12:49.641Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2022-06-20T23:12:49.641Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false [none]
+[debug] [2022-06-20T23:12:49.820Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets/e9178de9-a347-43aa-ae17-1dc4d5afbfb2 200
+[debug] [2022-06-20T23:12:49.821Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets/e9178de9-a347-43aa-ae17-1dc4d5afbfb2 [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2022-06-20T23:12:49.825Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets [none]
+[debug] [2022-06-20T23:12:49.825Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets [omitted]
+[debug] [2022-06-20T23:12:50.838Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets 200
+[debug] [2022-06-20T23:12:50.839Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/rulesets {"name":"projects/burgerqueen-1ffdd/rulesets/16c26e05-cf07-4b04-9865-5852b53f7a09","source":{"files":[{"content":"service cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /orders/{id} {\r\n      allow read, write: if true;\r\n    }\r\n\r\n    match /{document=**} {\r\n      allow read, write: if false;\r\n    }\r\n  }\r\n}\r\n","name":"firestore.rules"}]},"createTime":"2022-06-20T23:12:49.113295Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2022-06-20T23:12:50.840Z] [rules] created ruleset projects/burgerqueen-1ffdd/rulesets/16c26e05-cf07-4b04-9865-5852b53f7a09
+[debug] [2022-06-20T23:12:51.025Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false 200
+[debug] [2022-06-20T23:12:51.025Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false {"fields":[{"name":"projects/burgerqueen-1ffdd/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] +  firestore: deployed indexes in firestore.indexes.json successfully 
+[info] i  hosting[burgerqueen-1ffdd]: beginning deploy... 
+[info] i  hosting[burgerqueen-1ffdd]: found 15 files in build 
+[debug] [2022-06-20T23:12:51.056Z] [hosting] uploading with 200 concurrency
+[debug] [2022-06-20T23:12:51.058Z] [hosting] hash cache [YnVpbGQ] not populated
+[debug] [2022-06-20T23:12:51.794Z] [hosting] hash cache [YnVpbGQ] stored for 15 files
+[debug] [2022-06-20T23:12:51.795Z] [hosting][hash queue][FINAL] {"max":657,"min":19,"avg":67,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":736}
+[debug] [2022-06-20T23:12:51.796Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b:populateFiles [none]
+[debug] [2022-06-20T23:12:51.796Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b:populateFiles {"files":{"/asset-manifest.json":"013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed","/index.html":"9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3","/manifest.json":"03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5","/static/css/main.2e3182ce.css":"545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3","/static/js/787.8b7cfe0c.chunk.js":"12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7","/static/js/787.8b7cfe0c.chunk.js.map":"5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72","/static/js/main.f5b730d9.js.LICENSE.txt":"af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc","/static/css/main.2e3182ce.css.map":"eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16","/static/media/letters.3dbb8d556f761c2b4f62.jpg":"532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89","/Logo.jpg":"044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef","/static/media/Logo.179e81f925a47371111e.jpg":"044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef","/static/media/BurgerLogo.1f40d942acd7302f1318.jpg":"8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a","/static/js/main.f5b730d9.js":"d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203","/static/js/main.f5b730d9.js.map":"24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a"}}
+[debug] [2022-06-20T23:12:52.891Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b:populateFiles 200
+[debug] [2022-06-20T23:12:52.891Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b:populateFiles {"uploadRequiredHashes":["24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a","013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed","d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203","af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc","532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89","545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3","5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72","12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7","8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a","9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3","eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16","03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45","b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5","044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files"}
+[debug] [2022-06-20T23:12:52.898Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a [none]
+[debug] [2022-06-20T23:12:52.898Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a [stream]
+[debug] [2022-06-20T23:12:52.901Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed [none]
+[debug] [2022-06-20T23:12:52.901Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed [stream]
+[debug] [2022-06-20T23:12:52.904Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203 [none]
+[debug] [2022-06-20T23:12:52.905Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203 [stream]
+[debug] [2022-06-20T23:12:52.907Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc [none]
+[debug] [2022-06-20T23:12:52.908Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc [stream]
+[debug] [2022-06-20T23:12:52.910Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89 [none]
+[debug] [2022-06-20T23:12:52.910Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89 [stream]
+[debug] [2022-06-20T23:12:52.912Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3 [none]
+[debug] [2022-06-20T23:12:52.912Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3 [stream]
+[debug] [2022-06-20T23:12:52.914Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72 [none]
+[debug] [2022-06-20T23:12:52.915Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72 [stream]
+[debug] [2022-06-20T23:12:52.917Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7 [none]
+[debug] [2022-06-20T23:12:52.918Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7 [stream]
+[debug] [2022-06-20T23:12:52.921Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a [none]
+[debug] [2022-06-20T23:12:52.922Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a [stream]
+[debug] [2022-06-20T23:12:52.924Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3 [none]
+[debug] [2022-06-20T23:12:52.924Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3 [stream]
+[debug] [2022-06-20T23:12:52.926Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16 [none]
+[debug] [2022-06-20T23:12:52.927Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16 [stream]
+[debug] [2022-06-20T23:12:52.936Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45 [none]
+[debug] [2022-06-20T23:12:52.937Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45 [stream]
+[debug] [2022-06-20T23:12:52.939Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [none]
+[debug] [2022-06-20T23:12:52.939Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [stream]
+[debug] [2022-06-20T23:12:52.941Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef [none]
+[debug] [2022-06-20T23:12:52.941Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef [stream]
+[debug] [2022-06-20T23:12:52.942Z] [hosting][populate queue][FINAL] {"max":1173,"min":1173,"avg":1173,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1217}
+[debug] [2022-06-20T23:12:52.942Z] [hosting] uploads queued: 14
+[debug] [2022-06-20T23:12:54.469Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc 200
+[debug] [2022-06-20T23:12:54.469Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/af75447c9c58fc18a4abd400f02fb1e37f5b0c6c3f02bcdc60fba1e6e11e76cc [stream]
+[debug] [2022-06-20T23:12:54.729Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a 200
+[debug] [2022-06-20T23:12:54.730Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/24c9b2e48c0025eda2a7323c2de4610a13dd8e6094e6f00180105164f63ff57a [stream]
+[debug] [2022-06-20T23:12:54.907Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 200
+[debug] [2022-06-20T23:12:54.907Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5 [stream]
+[debug] [2022-06-20T23:12:54.946Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7 200
+[debug] [2022-06-20T23:12:54.946Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/12ff5b656f87d8d7069ffb766e0bc39bd87e116352c82db6df2de7f77b07b5d7 [stream]
+[debug] [2022-06-20T23:12:54.953Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed 200
+[debug] [2022-06-20T23:12:54.954Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/013810a811a4f9a472fedf4e4ba0e3f795dd31b705c3f4e627c93e5794f9f5ed [stream]
+[debug] [2022-06-20T23:12:54.962Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3 200
+[debug] [2022-06-20T23:12:54.962Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/545b08d38028c467ca54597ee43f306b1da91c061d6a7156cd1ae02ed12aeaf3 [stream]
+[debug] [2022-06-20T23:12:54.978Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72 200
+[debug] [2022-06-20T23:12:54.978Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/5dec1f487574e8aa670d92896aa016c8aa4f632bba2200aeaa5a1bc1f50e3e72 [stream]
+[debug] [2022-06-20T23:12:54.981Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3 200
+[debug] [2022-06-20T23:12:54.981Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/9b9567425a653d2b7cca284eb807c8bc8c729b17296b30c0fc92f2bc62b565d3 [stream]
+[debug] [2022-06-20T23:12:54.983Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16 200
+[debug] [2022-06-20T23:12:54.983Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/eb252a5aea2bd7d6d27b3db1aaf3d1d3245cb8753b8ef7342544e6b9eef28e16 [stream]
+[debug] [2022-06-20T23:12:55.008Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203 200
+[debug] [2022-06-20T23:12:55.008Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/d1941ec74b52c568e0f51f1f0911ea0fb76eb84a4ed30ac540f0949cac6fa203 [stream]
+[debug] [2022-06-20T23:12:55.013Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89 200
+[debug] [2022-06-20T23:12:55.014Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/532cbbab2b9b715c3350fabd3de85ccbaaed699a84109361b7f8ea18bf2ccd89 [stream]
+[debug] [2022-06-20T23:12:55.018Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45 200
+[debug] [2022-06-20T23:12:55.018Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/03e66928b3724292a7a547733c76514d4e013efb1a93d5d4c43a910ee968cd45 [stream]
+[debug] [2022-06-20T23:12:55.035Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef 200
+[debug] [2022-06-20T23:12:55.035Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/044d35e64ec5ae4c3306ef3894510c2b7c0aae37f7917c3c0c7ef33b1ea91fef [stream]
+[debug] [2022-06-20T23:12:55.156Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a 200
+[debug] [2022-06-20T23:12:55.156Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b/files/8968220b8babb2b87feba0b1f94f22f9edee1387a11c22dd83f62c94e374091a [stream]
+[debug] [2022-06-20T23:12:55.157Z] [hosting][upload queue][FINAL] {"max":2260,"min":1575,"avg":2043.4285714285713,"active":0,"complete":14,"success":14,"errored":0,"retried":0,"total":14,"elapsed":2265}
+[info] +  hosting[burgerqueen-1ffdd]: file upload complete 
+[debug] [2022-06-20T23:12:55.159Z] [hosting] deploy completed after 4129ms
+[debug] [2022-06-20T23:12:55.168Z] [rules] releasing cloud.firestore with ruleset projects/burgerqueen-1ffdd/rulesets/16c26e05-cf07-4b04-9865-5852b53f7a09
+[debug] [2022-06-20T23:12:55.170Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases/cloud.firestore [none]
+[debug] [2022-06-20T23:12:55.170Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases/cloud.firestore {"release":{"name":"projects/burgerqueen-1ffdd/releases/cloud.firestore","rulesetName":"projects/burgerqueen-1ffdd/rulesets/16c26e05-cf07-4b04-9865-5852b53f7a09"}}
+[debug] [2022-06-20T23:12:56.138Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases/cloud.firestore 200
+[debug] [2022-06-20T23:12:56.138Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/burgerqueen-1ffdd/releases/cloud.firestore {"name":"projects/burgerqueen-1ffdd/releases/cloud.firestore","rulesetName":"projects/burgerqueen-1ffdd/rulesets/16c26e05-cf07-4b04-9865-5852b53f7a09","createTime":"2022-06-14T17:02:44.435125Z","updateTime":"2022-06-20T23:12:54.430135Z"}
+[debug] [2022-06-20T23:12:56.138Z] [rules] updated release projects/burgerqueen-1ffdd/releases/cloud.firestore
+[info] +  firestore: released rules firestore.rules to cloud.firestore 
+[debug] [2022-06-20T23:12:56.160Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "burgerqueen-1ffdd"
+    },
+    "site": "burgerqueen-1ffdd",
+    "version": "projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b"
+  }
+]
+[info] i  hosting[burgerqueen-1ffdd]: finalizing version... 
+[debug] [2022-06-20T23:12:56.164Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b updateMask=status%2Cconfig
+[debug] [2022-06-20T23:12:56.165Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/489163254362/sites/burgerqueen-1ffdd/versions/17ff3ca6a4da758b {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
