@@ -1,5 +1,5 @@
 import './App.css';
-import LogIn from "./Components/Log";
+import LogIn from "./Components/Login";
 import Waiters from "./Components/Waiters";
 import Orders from "./Components/Orders";
 import Kitchen from "./Components/Kitchen";

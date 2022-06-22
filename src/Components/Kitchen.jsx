@@ -22,7 +22,7 @@ export default function Kitchen() {
     return (
         <>
             <Header />
-            <section className="ordersContainer">
+            <section className="ordersContainer" id="ordersContainerKitchen">
                 <div className="ordersPending">
                     <p>Pendientes</p>
                     <OrdersList orders={orders} status="Pendiente" />

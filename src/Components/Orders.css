@@ -18,6 +18,10 @@
     flex-direction: column;
     align-items: center;
 }
+.ordersContainerWaiter{
+    width: 90%;
+    background-color: rgba(211, 224, 158, 0.2);
+}
 
 .orderStatusList {
     display: flex;
@@ -38,6 +42,7 @@
     overflow: scroll;
     justify-self: center;
     border-radius: 10px;
+    padding: 20px 0;
 }
 
 .orderStatusItem p {
@@ -46,7 +51,7 @@
 }
 
 .ordersPending .orderStatusItem {
-    background-color: rgba(223, 26, 26, 0.801);
+    background-color: rgba(228, 125, 125, 0.801);
 }
 
 .ordersDoing .orderStatusItem {
@@ -76,10 +81,19 @@ details:hover {
     width: 170px;
     font-size: 25px;
 }
+#ordersContainerKitchen .ordersDone .orderStatusItem {
+    padding: 45px 0;
+}
+#ordersContainerKitchen .ordersDone .btnState{
+    display: none;
+}
 
 @media (max-device-width: 1280px) and (orientation: landscape) {
     .ordersContainer {
         height: 75%;
+    }
+    #ordersDoneWaiter{
+        width: 50%;
     }
 
     .ordersContainer>div {
@@ -96,6 +110,9 @@ details:hover {
     .ordersContainer {
         height: 75%;
         flex-direction: row;
+    }
+    #ordersDoneWaiter{
+        width: 50%;
     }
     .btnState{
         height:40px;

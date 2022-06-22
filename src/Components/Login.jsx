@@ -1,25 +1,29 @@
-
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { signIn } from '../Firebase/Firebase.js'
 
-import BurgerLogo from '../Images/BurgerLogo.jpg'
+import BurgerLogo from '../Images/BurgerLogo.png'
+
+import { AuthContext } from '../Firebase/context'
 
 export default function LogIn() {
   const userInputRef = useRef();
   const passwordInputRef = useRef();
+  const workerSelectRef = useRef();
 
   let navigate = useNavigate();
   let location = useLocation();
 
+  const contextValue = useContext(AuthContext);
+
   const getInputValue = () => {
     const inputUserValue = userInputRef.current.value;
     const inputPasswordValue = passwordInputRef.current.value;
+    const workerSelectRefValue = workerSelectRef.current.value;
    
-    signIn(inputUserValue, inputPasswordValue).then((user) => {      
+    contextValue.logIn(inputUserValue, inputPasswordValue).then((user) => {      
       if(typeof user === 'string'){
         let message = '';
           switch (user) {
@@ -43,7 +47,12 @@ export default function LogIn() {
           }
         alert(message);
       }else{
-        navigate("/waiters" + location.search);
+        if (workerSelectRefValue === "Mesas") {
+          navigate("/waiters" + location.search);
+        } else {
+          navigate("/kitchen" + location.search);
+        }
+        
       }
     })
   }
@@ -51,10 +60,16 @@ export default function LogIn() {
   return (
     <div className="App">
       <img src={BurgerLogo} className="App-logo" alt="logo" />
-      <p>Iniciar Sesion:</p>
-      <input ref={userInputRef} type="text" id="user" className="loginInputs" placeholder="Usuario" />
-      <input ref={passwordInputRef} type="password" id="password" className="loginInputs" placeholder="Contraseña" />
-      <button id="loginButton" onClick={getInputValue}>Ingresar</button>
+      <section className="LogIn">
+        <p>Iniciar Sesion:</p>
+        <input ref={userInputRef} type="text" id="user" className="loginInputs" placeholder="Usuario" />
+        <input ref={passwordInputRef} type="password" id="password" className="loginInputs" placeholder="Contraseña" />
+        <select className="workerType" ref={workerSelectRef}>
+          <option value="Mesas">Mesas</option>
+          <option value="Cocinas">Cocina</option>
+        </select>
+        <button id="loginButton" onClick={getInputValue}>Ingresar</button>
+      </section>
     </div>
   );
 }
