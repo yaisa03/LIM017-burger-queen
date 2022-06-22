@@ -1,5 +1,5 @@
-import Logo from '../Images/Logo.jpg'
-import Letters from '../Images/letters.jpg'
+import Logo from '../Images/Logo.png'
+import Letters from '../Images/letters.png'
 import './Waiters.css';
 import { FaSignOutAlt } from "react-icons/fa";
 import {

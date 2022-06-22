@@ -25,7 +25,7 @@ export default function Orders() {
             <Header />
             <WaitersButtons />
             <section className="ordersContainer">
-                <div className="ordersDone">
+                <div className="ordersDone" id="ordersDoneWaiter">
                     <p>Ordenes Listas</p>
                     <OrdersList orders={orders} status="Listo" />
                 </div>
