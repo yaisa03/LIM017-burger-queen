@@ -3,10 +3,9 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-
-import BurgerLogo from '../Images/BurgerLogo.png'
-
-import { AuthContext } from '../Firebase/context'
+import BurgerLogo from '../Images/BurgerLogo.png';
+import { AuthContext } from '../Firebase/context';
+import Swal from 'sweetalert2';
 
 export default function LogIn() {
   const userInputRef = useRef();
@@ -28,24 +27,28 @@ export default function LogIn() {
         let message = '';
           switch (user) {
             case 'Firebase: Error (auth/internal-error).':
-              message ='ingresar contraseña';
+              message ='Ingresar contraseña';
               break;
             case 'Firebase: Error (auth/invalid-email).':
-              message ='email invalido';
+              message ='Email invalido';
               break;
             case 'Firebase: Error (auth/user-not-found).':
-              message ='usuario no encontrado';
+              message ='Usuario no encontrado';
               break;
             case 'Firebase: Error (auth/wrong-password).':
-              message ='contraseña incorrecta';
+              message ='Contraseña incorrecta';
               break;
             case 'Firebase: Error (auth/missing-email).':
-              message ='ingresar email';
+              message ='Ingresar email';
               break;
             default:
               break;
           }
-        alert(message);
+        Swal.fire({
+          icon: 'error',
+          title: 'ERROR',
+          text: message,
+        })
       }else{
         if (workerSelectRefValue === "Mesas") {
           navigate("/waiters" + location.search);
