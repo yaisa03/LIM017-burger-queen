@@ -4,12 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
 import Cart from "./Cart";
-/* import {
-  useNavigate,
-  useLocation,
-} from "react-router-dom"; */
-import { uploadOrder } from '../Firebase/Firebase.js'
-
+import { uploadOrder } from '../Firebase/Firebase.js';
+import Swal from 'sweetalert2';
 // Funcion que crea la vista waiters para tomar pedidos
 export default function Waiters() {
   const [data, setData] = useState(menu.breakfast);
@@ -17,14 +13,7 @@ export default function Waiters() {
   const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
   const clientTableRef = useRef();
-  /* let navigate = useNavigate();
-  let location = useLocation();
-  const takeOrder = () => {
-      navigate("/waiters" + location.search);
-  }
-  const orderStatus = () => {
-      navigate("/orders" + location.search);
-  }  */
+  
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
@@ -63,22 +52,32 @@ export default function Waiters() {
   }
   const sendOrder = () => {
     const inputClientValue = clientInputRef.current.value;
-    if (inputClientValue) {
+    const inputTableValue = clientTableRef.current.value;
+    let message = '';
+    if (inputClientValue && inputTableValue) {
       let clientOrder = {
         order: order,
         client: inputClientValue,
         total: total,
         state: "Pendiente",
-        table: clientTableRef.current.value,
+        table: inputTableValue,
         date: new Date()
       }
       uploadOrder(clientOrder);
       alert('pedido enviado')
       clientInputRef.current.value = null;
+      clientTableRef.current.value = null;
       setOrder([]);
+    } else if (!inputClientValue)  {
+      message = 'Ingresa nombre del cliente';
     } else {
-      alert('ingresa nombre del cliente')
+      message = 'Ingresa el numero de mesa';
     }
+    Swal.fire({
+      icon: 'error',
+      title: 'ERROR',
+      text: message,
+    })
   }
 
   useEffect(() => {
