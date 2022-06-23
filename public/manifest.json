@@ -3,9 +3,41 @@
   "name": "Burger Queen",
   "icons": [
     {
+      "src": "img/favicon.ico",
+      "type": "image/x-icon"
+    },
+    {
       "src": "/public/Logo.jpg",
       "type": "image/jpg",
-      "sizes": "64x64 32x32 24x24 16x16"
+      "sizes": "414x319"
+    },
+    {
+      "src": "Images/android/android-launchericon-512-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "Images/android/android-launchericon-192-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Images/android/android-launchericon-144-144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "Images/android/android-launchericon-96-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "Images/android/android-launchericon-72-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "Images/ios/192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Images/ios/512.png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
