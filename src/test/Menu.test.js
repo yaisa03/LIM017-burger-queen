@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import MenuItem from '../Components/MenuItem';
 import MenuList from '../Components/MenuList';
+import Cart from '../Components/Cart';
 
 test('renders MenuItems', () => {
     const option = {
@@ -42,4 +43,41 @@ test('renders MenuList', () => {
     ]
     render(<MenuList data={data} />)
     screen.getByText(`${data[0].item} $${data[0].price}`);
+});
+const order = [
+    {
+        id: 1,
+        item: 'Hamburgesa',
+        price: 10
+    },
+    {
+        id: 2,
+        item: 'Sandwich',
+        price: 8
+    }
+]
+test('renders Cart', () => {
+    render(<Cart  order={order} />)
+    screen.getByText(`${order[0].item}`);
+});
+test('buttonAddItem', () => {
+    const addItemQty = jest.fn();
+    render(<Cart order={order} addItemQty={addItemQty} />)
+    const Button = screen.getAllByTestId('addBtn');
+    fireEvent.click(Button[0]);
+    expect(addItemQty).toHaveBeenCalledTimes(1);
+});
+test('buttonMinusItem', () => {
+    const subsItemQty = jest.fn();
+    render(<Cart order={order} subsItemQty={subsItemQty} />)
+    const Button = screen.getAllByTestId('minusBtn');
+    fireEvent.click(Button[0]);
+    expect(subsItemQty).toHaveBeenCalledTimes(1);
+});
+test('buttonDeleteItem', () => {
+    const deleteItem = jest.fn();
+    render(<Cart order={order} deleteItem={deleteItem} />)
+    const Button = screen.getAllByTestId('deleteBtn');
+    fireEvent.click(Button[0]);
+    expect(deleteItem).toHaveBeenCalledTimes(1);
 });

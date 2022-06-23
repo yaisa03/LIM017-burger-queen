@@ -20,12 +20,12 @@ export default function CartList({ order, addItemQty, subsItemQty, deleteItem })
                 return <section key={option.id} className="cartList-item">
                     <p>{option.item}</p>
                     <div className="itemQuantity">
-                        <FaPlus className="fa fa-plus" onClick={addItemToOrder} />
+                        <FaPlus className="fa fa-plus" onClick={addItemToOrder} data-testid="addBtn"/>
                         <p>{option.count}</p>
-                        <FaMinus className="fa fa-minus" onClick={subsItemFromOrder}/>
+                        <FaMinus className="fa fa-minus" onClick={subsItemFromOrder} data-testid="minusBtn"/>
                     </div>
                     <p> ${option.price}</p>
-                    <FaTrashAlt className="fa fa-trash" onClick={deleteItemFromOrder}/>
+                    <FaTrashAlt className="fa fa-trash" onClick={deleteItemFromOrder} data-testid="deleteBtn"/>
                 </section>
             })}
         </section>
