@@ -4,6 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
 import Cart from "./Cart";
+/* import {
+  useNavigate,
+  useLocation,
+} from "react-router-dom"; */
 import { uploadOrder } from '../Firebase/Firebase.js'
 
 // Funcion que crea la vista waiters para tomar pedidos
@@ -13,7 +17,14 @@ export default function Waiters() {
   const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
   const clientTableRef = useRef();
-
+  /* let navigate = useNavigate();
+  let location = useLocation();
+  const takeOrder = () => {
+      navigate("/waiters" + location.search);
+  }
+  const orderStatus = () => {
+      navigate("/orders" + location.search);
+  }  */
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
@@ -36,7 +47,6 @@ export default function Waiters() {
       ]);
     }
   };
-
   const subsItemQty = (id, order) => {
     const rest = order.map((item) => {
       if (item.count > 1) {
@@ -47,12 +57,10 @@ export default function Waiters() {
     });
     setOrder(rest);
   };
-
   const deleteItem = (id, order) => {
     const editedArray = order.filter((item) => item.id !== id);
     setOrder(editedArray);
   }
-
   const sendOrder = () => {
     const inputClientValue = clientInputRef.current.value;
     if (inputClientValue) {
@@ -81,7 +89,7 @@ export default function Waiters() {
   return (
     <div id="waiterViewContainer">
       <Header />
-      <WaitersButtons/>
+      <WaitersButtons />
       <div id="waiterMenuOptions">
         <button onClick={showItemsBreakfast} className="buttonWaiterMenu"> Desayuno </button>
         <button onClick={showItemsDishes} className="buttonWaiterMenu"> Platos </button>
