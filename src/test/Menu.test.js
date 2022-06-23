@@ -1,7 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { BrowserRouter } from "react-router-dom";
 import MenuItem from '../Components/MenuItem';
 import MenuList from '../Components/MenuList';
 import Cart from '../Components/Cart';
+import WaitersButtons from '../Components/WaitersButtons';
 
 test('renders MenuItems', () => {
     const option = {
@@ -80,4 +82,9 @@ test('buttonDeleteItem', () => {
     const Button = screen.getAllByTestId('deleteBtn');
     fireEvent.click(Button[0]);
     expect(deleteItem).toHaveBeenCalledTimes(1);
+});
+test('buttonWaiters', () => {
+    render(<WaitersButtons />)
+    const Button = screen.getByText('Tomar orden');
+    expect(Button).not.toBeDisabled();
 });
