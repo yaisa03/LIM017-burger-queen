@@ -1,4 +1,4 @@
-export default function MenuItem({ order, btnText, updateState}) {
+export default function OrdersItem({ order, btnText, updateState}) {
 
     function changeState() {
         updateState(order.id, btnText);

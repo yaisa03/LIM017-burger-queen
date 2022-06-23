@@ -6,16 +6,20 @@ import {
     useNavigate,
     useLocation,
   } from "react-router-dom";
-  import { SignOut, auth } from '../Firebase/Firebase.js'
+/* import { SignOut  auth } from '../Firebase/Firebase.js'; */
+import { AuthContext, auth } from '../Firebase/context';
+import React, { useContext } from 'react';
+
 
 export default function Header() {
+    const contextValue = useContext(AuthContext);
     let navigate = useNavigate();
     let location = useLocation();
     const position = (auth.currentUser.email).indexOf('@');
     let username = (auth.currentUser.email).substring(0,position);
     const exit = () => {
         navigate("/" + location.search);
-        SignOut();
+        contextValue.SignOut();
     }
     
     return (<>
