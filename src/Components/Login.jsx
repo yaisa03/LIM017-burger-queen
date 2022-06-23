@@ -60,7 +60,7 @@ export default function LogIn() {
   return (
     <div className="App">
       <img src={BurgerLogo} className="App-logo" alt="logo" />
-      <form className="LogIn">
+      <section className="LogIn">
         <p>Iniciar Sesion:</p>
         <input ref={userInputRef} type="text" id="user" className="loginInputs" placeholder="Usuario" />
         <input ref={passwordInputRef} type="password" id="password" className="loginInputs" placeholder="Contraseña" />
@@ -69,7 +69,7 @@ export default function LogIn() {
           <option value="Cocinas">Cocina</option>
         </select>
         <button id="loginButton" onClick={getInputValue}>Ingresar</button>
-      </form>
+      </section>
     </div>
   );
 }
