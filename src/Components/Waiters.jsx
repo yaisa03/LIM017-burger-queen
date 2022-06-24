@@ -1,13 +1,14 @@
 import Header from "./Header";
 import WaitersButtons from "./WaitersButtons";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import MenuList from "./MenuList";
 import menu from '../Menu.json';
 import Cart from "./Cart";
-import { uploadOrder } from '../Firebase/Firebase.js';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Firebase/context';
 // Funcion que crea la vista waiters para tomar pedidos
 export default function Waiters() {
+  const contextValue = useContext(AuthContext);
   const [data, setData] = useState(menu.breakfast);
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
@@ -54,6 +55,7 @@ export default function Waiters() {
     const inputClientValue = clientInputRef.current.value;
     const inputTableValue = clientTableRef.current.value;
     let message = '';
+    let icon = '';
     if (inputClientValue && inputTableValue) {
       let clientOrder = {
         order: order,
@@ -63,19 +65,22 @@ export default function Waiters() {
         table: inputTableValue,
         date: new Date()
       }
-      uploadOrder(clientOrder);
-      alert('pedido enviado')
+      contextValue.uploadOrder(clientOrder);
+      message= 'Pedido enviado';
+      icon = 'success';
       clientInputRef.current.value = null;
       clientTableRef.current.value = null;
       setOrder([]);
     } else if (!inputClientValue)  {
       message = 'Ingresa nombre del cliente';
+      icon = 'error';
     } else {
       message = 'Ingresa el numero de mesa';
+      icon = 'error';
     }
     Swal.fire({
-      icon: 'error',
-      title: 'ERROR',
+      icon: icon,
+      title: icon,
       text: message,
     })
   }
