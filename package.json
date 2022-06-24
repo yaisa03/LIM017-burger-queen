@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "cra-template-pwa": "^2.0.0",
     "firebase": "^9.8.2",
+    "jest": "^28.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.31.3",

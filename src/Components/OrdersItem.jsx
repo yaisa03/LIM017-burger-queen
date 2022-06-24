@@ -1,7 +1,7 @@
-export default function OrdersItem({ order, btnText, updateState}) {
+export default function OrdersItem({ order, btnText, setState}) {
 
     function changeState() {
-        updateState(order.id, btnText);
+        setState(order.id, btnText);
     }
     return (
         <div className="orderStatusItem">
