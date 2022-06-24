@@ -3,8 +3,10 @@ import React from "react";
 import {
     getAuth, signInWithEmailAndPassword, signOut,
 } from 'firebase/auth';
+import { getFirestore, collection, addDoc/* , query, where, orderBy,
+  onSnapshot */ } from "firebase/firestore";
 
-//const db = getFirestore(app);
+const db = getFirestore(app);
 
 export const auth = getAuth(app);
 
@@ -22,8 +24,16 @@ export const AuthProvider = ({ children }) => {
     return signOut(auth).then(() => {})
       .catch((error) => error);
   }
+  // Funcion que crea pedidos es Firestore
+  function uploadOrder(clientOrder) {
+    const user = auth.currentUser;
+    return addDoc(collection(db, 'orders'), {
+      ...clientOrder,
+      waiterId: user.uid
+    });
+}
   
     return (
-      <AuthContext.Provider value={{ logIn, SignOut }}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{ logIn, SignOut, uploadOrder}}>{children}</AuthContext.Provider>
     );
   };

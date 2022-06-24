@@ -6,7 +6,6 @@ import {
     useNavigate,
     useLocation,
   } from "react-router-dom";
-/* import { SignOut  auth } from '../Firebase/Firebase.js'; */
 import { AuthContext, auth } from '../Firebase/context';
 import React, { useContext } from 'react';
 
