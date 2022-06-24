@@ -54,9 +54,8 @@ export default function Waiters() {
   const sendOrder = () => {
     const inputClientValue = clientInputRef.current.value;
     const inputTableValue = clientTableRef.current.value;
-    let message = '';
-    let icon = '';
-    if (inputClientValue && inputTableValue) {
+    let [message, icon, title] = ['','',''];
+    if (inputClientValue && inputTableValue && inputTableValue>0) {
       let clientOrder = {
         order: order,
         client: inputClientValue,
@@ -68,19 +67,26 @@ export default function Waiters() {
       contextValue.uploadOrder(clientOrder);
       message= 'Pedido enviado';
       icon = 'success';
+      title = 'EXITO';
       clientInputRef.current.value = null;
       clientTableRef.current.value = null;
       setOrder([]);
     } else if (!inputClientValue)  {
       message = 'Ingresa nombre del cliente';
       icon = 'error';
-    } else {
+      title = 'ERROR';
+    } else if(inputTableValue<1) {
+      message = 'Ingresa un numero de mesa valido';
+      icon = 'error';
+      title = 'ERROR';
+    }else {
       message = 'Ingresa el numero de mesa';
       icon = 'error';
+      title = 'ERROR';
     }
     Swal.fire({
       icon: icon,
-      title: icon,
+      title: title,
       text: message,
     })
   }

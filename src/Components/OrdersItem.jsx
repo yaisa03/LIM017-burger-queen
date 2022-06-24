@@ -10,9 +10,15 @@ export default function OrdersItem({ order, btnText, setState}) {
                     <p>Estado: {order.state}</p>
                     <details>
                         <summary>Orden</summary>
+                        <table>
                         {order.order.map((e) => {
-                            return <p>{e.item}  {e.count}</p>
+                            return (
+                            <tr>
+                                <td>{e.item}</td>
+                                <td>{e.count}</td>
+                            </tr>)
                         })}
+                        </table>
                     </details>
                     <button className="btnState" onClick={changeState}> {btnText} </button>
                 </div>
