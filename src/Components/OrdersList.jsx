@@ -1,10 +1,12 @@
-import { setDoc, doc } from "firebase/firestore";
-import { db } from "./Orders.jsx"
-import OrdersItem from "./OrdersItem.jsx"
+import OrdersItem from "./OrdersItem.jsx";
+import React, { useContext } from 'react';
+import { AuthContext } from '../Firebase/context';
 
 export default function OrderList({ orders, status }) {
 
-    const ordersByStatus = orders.filter((order) => order.state === status)
+    const contextValue = useContext(AuthContext);
+
+    const ordersByStatus = orders.filter((order) => order.state === status);
 
     let btnText = '';
     switch (status) {
@@ -21,14 +23,14 @@ export default function OrderList({ orders, status }) {
             break;
     }
 
-    function updateState(id, newState) {
-        setDoc(doc(db, "orders",id), {state: newState}, {merge:true});
+    function setState(id, newState) {
+        contextValue.updateState(id, newState);
     }
 
     return (
         <section className="orderStatusList">
             { ordersByStatus.map(order => {
-                return (<OrdersItem  key={order.id} order={order} btnText={btnText} updateState={updateState}/>)
+                return (<OrdersItem  key={order.id} order={order} btnText={btnText} setState={setState}/>)
             })}
         </section>
     )

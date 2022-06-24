@@ -1,12 +1,12 @@
 import { app } from './FirebaseInit';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     getAuth, signInWithEmailAndPassword, signOut,
-} from 'firebase/auth';
-import { getFirestore, collection, addDoc/* , query, where, orderBy,
-  onSnapshot */ } from "firebase/firestore";
+    getFirestore, collection, addDoc, query, orderBy,
+    onSnapshot, doc, setDoc,
+} from './FirebaseImport.js';
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export const auth = getAuth(app);
 
@@ -32,8 +32,23 @@ export const AuthProvider = ({ children }) => {
       waiterId: user.uid
     });
 }
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        const ordersCollection = collection(db, "orders");
+        const q = query(ordersCollection, orderBy("date", "desc"));
+        const getOrders = onSnapshot(q, (snapshot) =>
+            setOrders(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        );
+        return getOrders;
+    }, []);
+
+    function updateState(id, newState) {
+      setDoc(doc(db, "orders",id), {state: newState}, {merge:true});
+  }
+
   
     return (
-      <AuthContext.Provider value={{ logIn, SignOut, uploadOrder}}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{ logIn, SignOut, uploadOrder, orders, updateState}}>{children}</AuthContext.Provider>
     );
   };

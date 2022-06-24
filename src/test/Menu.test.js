@@ -156,14 +156,14 @@ test('renders OrderList', () => {
     screen.getByText('Entregado');
 });
 test('renders OrdersItems', () => {    
-    const updateState = jest.fn();
-    render(<OrdersItems order={data[0]} btnText='Haciendo' updateState={updateState}  />)
+    const setState = jest.fn();
+    render(<OrdersItems order={data[0]} btnText='Haciendo' setState={setState}  />)
     const Button = screen.getByText('Haciendo');
     fireEvent.click(Button);
-    expect(updateState).toHaveBeenCalledTimes(1);
+    expect(setState).toHaveBeenCalledTimes(1);
     
 });
-test('buttonWaiters', () => {
+test('button Waiters', () => {
     render(
         <BrowserRouter>
           <WaitersButtons/>
