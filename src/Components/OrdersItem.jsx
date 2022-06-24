@@ -1,7 +1,7 @@
-export default function OrdersItem({ order, btnText, updateState}) {
+export default function OrdersItem({ order, btnText, setState}) {
 
     function changeState() {
-        updateState(order.id, btnText);
+        setState(order.id, btnText);
     }
     return (
         <div className="orderStatusItem">
@@ -10,9 +10,15 @@ export default function OrdersItem({ order, btnText, updateState}) {
                     <p>Estado: {order.state}</p>
                     <details>
                         <summary>Orden</summary>
+                        <table>
                         {order.order.map((e) => {
-                            return <p>{e.item}  {e.count}</p>
+                            return (
+                            <tr>
+                                <td>{e.item}</td>
+                                <td>{e.count}</td>
+                            </tr>)
                         })}
+                        </table>
                     </details>
                     <button className="btnState" onClick={changeState}> {btnText} </button>
                 </div>
