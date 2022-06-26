@@ -6,24 +6,34 @@ import menu from '../Menu.json';
 import Cart from "./Cart";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Firebase/context';
+
 // Funcion que crea la vista waiters para tomar pedidos
 export default function Waiters() {
+  
+  // Declaracion de variables
   const contextValue = useContext(AuthContext);
   const [data, setData] = useState(menu.breakfast);
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
   const clientInputRef = useRef();
   const clientTableRef = useRef();
-  
+
+  //Damos funcionalidad al boton Desayuno para que muestre las opciones de desayuno desde el menu json
   const showItemsBreakfast = () => {
     return setData(menu.breakfast);
   }
+
+  //Damos funcionalidad al boton Platos para que muestre las opciones de platos desde el menu json
   const showItemsDishes = () => {
     return setData(menu.dishes);
   }
+
+  //Damos funcionalidad al boton Bebidas para que muestre las opciones de bebidas desde el menu json
   const showItemsDrinks = () => {
     return setData(menu.drinks);
   }
+
+  //Funcionalidad para aumentar en cantidad el item si se presiona nuevamente la opcion
   const addItemQty = (id, option) => {
     if (order.some((item) => item.id === id)) {
       const idproduct = order.map((item) =>
@@ -37,6 +47,8 @@ export default function Waiters() {
       ]);
     }
   };
+
+  //Funcionalidad para disminuir en cantidad el item
   const subsItemQty = (id, order) => {
     const rest = order.map((item) => {
       if (item.count > 1) {
@@ -47,10 +59,14 @@ export default function Waiters() {
     });
     setOrder(rest);
   };
+
+  //Funcionalidad para eliminar un item de la orden del cliente
   const deleteItem = (id, order) => {
     const editedArray = order.filter((item) => item.id !== id);
     setOrder(editedArray);
   }
+
+  //Funcionalidad para subir una orden a la colecciond e Firebase
   const sendOrder = () => {
     const inputClientValue = clientInputRef.current.value;
     const inputTableValue = clientTableRef.current.value;
@@ -91,6 +107,7 @@ export default function Waiters() {
     })
   }
 
+  // Funcionalidad para actualizar el total de la orden segun se vayan escogiendo items 
   useEffect(() => {
     const totalOrder = order.reduce((total, price) => total + price.price, 0);
     setTotal(totalOrder);
