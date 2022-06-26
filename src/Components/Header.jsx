@@ -9,13 +9,17 @@ import {
 import { AuthContext, auth } from '../Firebase/context';
 import React, { useContext } from 'react';
 
-
+// Componente de encabezado con el logo, username e icono para cerrar sesion
 export default function Header() {
+
+    // Declaracion de variables
     const contextValue = useContext(AuthContext);
     let navigate = useNavigate();
     let location = useLocation();
     const position = (auth.currentUser.email).indexOf('@');
     let username = (auth.currentUser.email).substring(0,position);
+
+    // Damos funcionalidad a icono para cerrar sesion
     const exit = () => {
         navigate("/" + location.search);
         contextValue.SignOut();
