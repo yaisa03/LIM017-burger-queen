@@ -14,13 +14,14 @@ export default function OrdersItem({ order, btnText, setState}) {
                     <details>
                         <summary>Orden</summary>
                         <table>
-                        {order.order.map((e) => {
-                            return (
-                            <tr>
+                        <tbody>
+                        {order.order.map((e) => (
+                            <tr key={e.id}>
                                 <td>{e.item}</td>
                                 <td>{e.count}</td>
                             </tr>)
-                        })}
+                        )}
+                        </tbody>
                         </table>
                     </details>
                     <button className="btnState" onClick={changeState}> {btnText} </button>
