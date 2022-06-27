@@ -7,24 +7,31 @@ import BurgerLogo from '../Images/BurgerLogo.png';
 import { AuthContext } from '../Firebase/context';
 import Swal from 'sweetalert2';
 
+// Vista LogIn para iniciar sesion
 export default function LogIn() {
+
+  // Declaracion de variables
   const userInputRef = useRef();
   const passwordInputRef = useRef();
   const workerSelectRef = useRef();
-
   let navigate = useNavigate();
   let location = useLocation();
-
   const contextValue = useContext(AuthContext);
 
+  // Funcion que permite acceder a informacion ingresada en inputs que contienen datos del usuario
   const getInputValue = () => {
+
+    // Declaracion de variables locales
     const inputUserValue = userInputRef.current.value;
     const inputPasswordValue = passwordInputRef.current.value;
     const workerSelectRefValue = workerSelectRef.current.value;
-   
+
+    // Accedemos a funcion LogIn del componente context
     contextValue.logIn(inputUserValue, inputPasswordValue).then((user) => {      
       if(typeof user === 'string'){
         let message = '';
+        
+        //Manejamos errores de inicio de sesion
           switch (user) {
             case 'Firebase: Error (auth/internal-error).':
               message ='Ingresar contraseña';
@@ -50,16 +57,15 @@ export default function LogIn() {
           text: message,
         })
       }else{
+        // Accedemos a la vista correspondiente segun el usuario
         if (workerSelectRefValue === "Mesas") {
           navigate("/waiters" + location.search);
         } else {
           navigate("/kitchen" + location.search);
-        }
-        
+        }        
       }
     })
   }
-
   return (
     <div className="App">
       <img src={BurgerLogo} className="App-logo" alt="logo" />

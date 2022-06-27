@@ -5,8 +5,10 @@ import './Orders.css';
 import OrdersList from "./OrdersList";
 import { AuthContext } from '../Firebase/context';
 
+// Componente que retorna la lista de pedidos listos para ser entregados en la vista del mesero
 export default function Orders() {
-
+    
+    // Declaracion de variables
     const contextValue = useContext(AuthContext);
 
     return (

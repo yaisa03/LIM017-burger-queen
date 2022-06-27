@@ -4,10 +4,12 @@ import './Orders.css';
 import OrdersList from "./OrdersList";
 import { AuthContext } from '../Firebase/context';
 
+//Componente que contiene vista del cocinero
 export default function Kitchen() {
 
+    // Declaracion de variables
     const contextValue = useContext(AuthContext);
-
+    
     return (
         <>
             <Header />
