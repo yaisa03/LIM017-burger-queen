@@ -34,8 +34,8 @@ export default function OrderList({ orders, status }) {
     
     return (
         <section className="orderStatusList">
-            { ordersByStatus.map(order => {
-                return (<OrdersItem  key={order.id} order={order} btnText={btnText} setState={setState}/>)
+            { ordersByStatus.map((order, index) => {
+                return (<OrdersItem  key={index} order={order} btnText={btnText} setState={setState}/>)
             })}
         </section>
     )
