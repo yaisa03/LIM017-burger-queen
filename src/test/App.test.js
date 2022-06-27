@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import App from '../App';
-import LogIn from '../Components/Login';
- 
+
 test('renders learn react link', () => {
   render(
   <BrowserRouter>
@@ -17,16 +16,3 @@ test('renders learn react link', () => {
 });
 
 
-test('Clicking the Login button', () => {
-  // eslint-disable-next-line testing-library/render-result-naming-convention
-  render(
-    <BrowserRouter>
-    <LogIn />
-    </BrowserRouter>);
-  
-  //const handleClick = jest.fn();
-
-  const Button = screen.getByText('Ingresar');
-  expect(Button).not.toBeDisabled();
-  //expect(handleClick).toHaveBeenCalledTimes(1)
-});
