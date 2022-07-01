@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from "react-router-dom";
 import App from '../App';
-import LogIn from '../Components/Login';
- 
+
 test('renders learn react link', () => {
   render(
   <BrowserRouter>
@@ -15,7 +14,6 @@ test('renders learn react link', () => {
   const inputPassword = screen.getByPlaceholderText(/Contraseña/i);
   expect(inputPassword).toBeInTheDocument();
 });
-
 
 test('Clicking the Login button', () => {
   render(
