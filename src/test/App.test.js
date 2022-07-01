@@ -18,15 +18,11 @@ test('renders learn react link', () => {
 
 
 test('Clicking the Login button', () => {
-  // eslint-disable-next-line testing-library/render-result-naming-convention
   render(
     <BrowserRouter>
     <LogIn />
     </BrowserRouter>);
-  
-  //const handleClick = jest.fn();
 
   const Button = screen.getByText('Ingresar');
   expect(Button).not.toBeDisabled();
-  //expect(handleClick).toHaveBeenCalledTimes(1)
 });
