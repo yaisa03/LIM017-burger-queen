@@ -15,4 +15,12 @@ test('renders learn react link', () => {
   expect(inputPassword).toBeInTheDocument();
 });
 
+test('Clicking the Login button', () => {
+  render(
+    <BrowserRouter>
+    <LogIn />
+    </BrowserRouter>);
 
+  const Button = screen.getByText('Ingresar');
+  expect(Button).not.toBeDisabled();
+});
